@@ -26,9 +26,17 @@ function updateCartDropdown() {
     }
     cartDropdown.innerHTML = '<b>Cart Items:</b><ul style="list-style:none;padding-left:0;">' +
         cart.map(item => `<li style='margin-bottom:8px;'>${item.title} <span style='color:#B12704;'>${item.price}</span></li>`).join('') +
-        '</ul>' + `<button id='checkoutBtn' style='background:#ffa41c;color:#232f3e;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:bold;'>Proceed to Checkout</button>`;
+        '</ul>' +
+        `<button id='checkoutBtn' style='background:#ffa41c;color:#232f3e;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:bold;margin-right:8px;'>Proceed to Checkout</button>` +
+        `<button id='clearCartBtn' style='background:#eee;color:#232f3e;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:bold;margin-top:8px;margin-bottom:4px;'>Clear Cart</button>`;
     document.getElementById('checkoutBtn').onclick = function() {
-        alert('Checkout is not implemented in this demo.');
+        /* No alert, just a placeholder */
+    };
+    document.getElementById('clearCartBtn').onclick = function() {
+        cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartDropdown();
     };
 }
 // Sample product data (should match main.js)
@@ -208,12 +216,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.getElementById('addToCartBtn').addEventListener('click', function() {
-    document.getElementById('addToCartBtn').addEventListener('click', function() {
-        cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        cart.push(products[getProductIndex()]);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-        updateCartDropdown();
-    });
-    alert('Proceeding to buy!');
+    cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(products[getProductIndex()]);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    updateCartDropdown();
 });
