@@ -69,20 +69,16 @@ const products = [
 let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
 function updateCartCount() {
-    const cartMenu = document.getElementById('cartMenu');
-    let countSpan = cartMenu.querySelector('.cart-count');
-    if (!countSpan) {
-        countSpan = document.createElement('span');
-        countSpan.className = 'cart-count';
-        countSpan.style.background = '#ffa41c';
-        countSpan.style.color = '#232f3e';
-        countSpan.style.fontWeight = 'bold';
-        countSpan.style.borderRadius = '50%';
-        countSpan.style.padding = '2px 7px';
-        countSpan.style.marginLeft = '6px';
-        cartMenu.appendChild(countSpan);
+    const cartCountDiv = document.getElementById('cartCount');
+    if (cartCountDiv) {
+        if (cart.length > 0) {
+            cartCountDiv.textContent = cart.length;
+            cartCountDiv.style.display = 'inline-block';
+        } else {
+            cartCountDiv.textContent = '';
+            cartCountDiv.style.display = 'none';
+        }
     }
-    countSpan.textContent = cart.length;
 }
 
 function updateCartDropdown() {

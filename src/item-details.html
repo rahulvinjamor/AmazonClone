@@ -30,7 +30,10 @@
                 </div>
                 <a href="#"><span>Returns<br><b>& Orders</b></span></a>
                 <div class="cart-preview">
-                    <a href="#" id="cartMenu"><i class="fa fa-shopping-cart"></i> <b>Cart</b></a>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <a href="#" id="cartMenu"><i class="fa fa-shopping-cart"></i> <b>Cart</b></a>
+                        <div id="cartCount" style="background:#ffa41c;color:#232f3e;font-weight:bold;border-radius:50%;padding:1px 5px;min-width:18px;font-size:0.95em;text-align:center;display:none;"></div>
+                    </div>
                     <div class="cart-dropdown" id="cartDropdown">
                         <p>Your cart is empty.</p>
                     </div>
