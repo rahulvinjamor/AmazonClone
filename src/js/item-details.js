@@ -1,3 +1,36 @@
+// Cart logic shared with homepage
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+function updateCartCount() {
+    const cartMenu = document.getElementById('cartMenu');
+    let countSpan = cartMenu.querySelector('.cart-count');
+    if (!countSpan) {
+        countSpan = document.createElement('span');
+        countSpan.className = 'cart-count';
+        countSpan.style.background = '#ffa41c';
+        countSpan.style.color = '#232f3e';
+        countSpan.style.fontWeight = 'bold';
+        countSpan.style.borderRadius = '50%';
+        countSpan.style.padding = '2px 7px';
+        countSpan.style.marginLeft = '6px';
+        cartMenu.appendChild(countSpan);
+    }
+    countSpan.textContent = cart.length;
+}
+
+function updateCartDropdown() {
+    const cartDropdown = document.getElementById('cartDropdown');
+    if (cart.length === 0) {
+        cartDropdown.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+    }
+    cartDropdown.innerHTML = '<b>Cart Items:</b><ul style="list-style:none;padding-left:0;">' +
+        cart.map(item => `<li style='margin-bottom:8px;'>${item.title} <span style='color:#B12704;'>${item.price}</span></li>`).join('') +
+        '</ul>' + `<button id='checkoutBtn' style='background:#ffa41c;color:#232f3e;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;font-weight:bold;'>Proceed to Checkout</button>`;
+    document.getElementById('checkoutBtn').onclick = function() {
+        alert('Checkout is not implemented in this demo.');
+    };
+}
 // Sample product data (should match main.js)
 const products = [
     {
@@ -168,11 +201,19 @@ function renderDetails() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderDetails);
+document.addEventListener('DOMContentLoaded', function() {
+    renderDetails();
+    updateCartCount();
+    updateCartDropdown();
+});
 
 document.getElementById('addToCartBtn').addEventListener('click', function() {
-    alert('Added to cart!');
-});
-document.getElementById('buyNowBtn').addEventListener('click', function() {
+    document.getElementById('addToCartBtn').addEventListener('click', function() {
+        cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        cart.push(products[getProductIndex()]);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartDropdown();
+    });
     alert('Proceeding to buy!');
 });
