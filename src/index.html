@@ -18,9 +18,23 @@
                 <button><i class="fa fa-search"></i></button>
             </div>
             <div class="nav">
-                <a href="#"><span>Hello, Sign in<br><b>Account & Lists</b></span></a>
+                <div class="account-dropdown">
+                    <a href="#" id="accountMenu"><span>Hello, Sign in<br><b>Account & Lists</b></span></a>
+                    <div class="dropdown-content" id="accountDropdown">
+                        <a href="#">Your Account</a>
+                        <a href="#">Orders</a>
+                        <a href="#">Wish List</a>
+                        <a href="#">Prime</a>
+                        <a href="#">Sign Out</a>
+                    </div>
+                </div>
                 <a href="#"><span>Returns<br><b>& Orders</b></span></a>
-                <a href="#"><i class="fa fa-shopping-cart"></i> <b>Cart</b></a>
+                <div class="cart-preview">
+                    <a href="#" id="cartMenu"><i class="fa fa-shopping-cart"></i> <b>Cart</b></a>
+                    <div class="cart-dropdown" id="cartDropdown">
+                        <p>Your cart is empty.</p>
+                    </div>
+                </div>
             </div>
         </div>
         <nav class="header-bottom">
@@ -33,13 +47,15 @@
         </nav>
     </header>
     <div class="hero-carousel">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Hero 1">
-        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" alt="Hero 2" style="display:none;">
-        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80" alt="Hero 3" style="display:none;">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Hero 1" id="carouselImage1">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80" alt="Hero 2" id="carouselImage2" style="display:none;">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80" alt="Hero 3" id="carouselImage3" style="display:none;">
         <div class="carousel-text">
             <h1>Welcome to Amazon</h1>
             <p>Shop deals, electronics, books, and more!</p>
         </div>
+        <button class="carousel-arrow left" id="carouselPrev"><i class="fa fa-chevron-left"></i></button>
+        <button class="carousel-arrow right" id="carouselNext"><i class="fa fa-chevron-right"></i></button>
     </div>
     <main>
         <section class="products-section">

@@ -1,3 +1,40 @@
+// Account dropdown interaction (for accessibility)
+document.getElementById('accountMenu').addEventListener('focus', function() {
+    document.getElementById('accountDropdown').style.display = 'block';
+});
+document.getElementById('accountMenu').addEventListener('blur', function() {
+    document.getElementById('accountDropdown').style.display = 'none';
+});
+
+// Cart preview interaction (for accessibility)
+document.getElementById('cartMenu').addEventListener('focus', function() {
+    document.getElementById('cartDropdown').style.display = 'block';
+});
+document.getElementById('cartMenu').addEventListener('blur', function() {
+    document.getElementById('cartDropdown').style.display = 'none';
+});
+
+// Carousel navigation
+const carouselImages = [
+    document.getElementById('carouselImage1'),
+    document.getElementById('carouselImage2'),
+    document.getElementById('carouselImage3')
+];
+let currentCarousel = 0;
+function showCarousel(idx) {
+    carouselImages.forEach((img, i) => {
+        img.style.display = i === idx ? 'block' : 'none';
+    });
+}
+document.getElementById('carouselPrev').addEventListener('click', function() {
+    currentCarousel = (currentCarousel - 1 + carouselImages.length) % carouselImages.length;
+    showCarousel(currentCarousel);
+});
+document.getElementById('carouselNext').addEventListener('click', function() {
+    currentCarousel = (currentCarousel + 1) % carouselImages.length;
+    showCarousel(currentCarousel);
+});
+showCarousel(currentCarousel);
 const products = [
     {
         title: "Echo Dot (4th Gen)",
