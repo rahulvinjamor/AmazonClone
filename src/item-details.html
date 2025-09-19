@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone - Item Details</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" height="32" style="filter: brightness(0) invert(1);"></div>
+            <div class="location"><i class="fa fa-map-marker-alt"></i> Deliver to <b>India</b></div>
+            <div class="search">
+                <input type="text" placeholder="Search Amazon">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <div class="nav">
+                <div class="account-dropdown">
+                    <a href="#" id="accountMenu"><span>Hello, Sign in<br><b>Account & Lists</b></span></a>
+                    <div class="dropdown-content" id="accountDropdown">
+                        <a href="#">Your Account</a>
+                        <a href="#">Orders</a>
+                        <a href="#">Wish List</a>
+                        <a href="#">Prime</a>
+                        <a href="#">Sign Out</a>
+                    </div>
+                </div>
+                <a href="#"><span>Returns<br><b>& Orders</b></span></a>
+                <div class="cart-preview">
+                    <a href="#" id="cartMenu"><i class="fa fa-shopping-cart"></i> <b>Cart</b></a>
+                    <div class="cart-dropdown" id="cartDropdown">
+                        <p>Your cart is empty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="header-bottom">
+            <a href="#">All</a>
+            <a href="#">Today's Deals</a>
+            <a href="#">Customer Service</a>
+            <a href="#">Registry</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Sell</a>
+        </nav>
+    </header>
+    <main class="item-details-main">
+        <div class="item-details-container">
+            <div class="item-image">
+                <img id="detailsImage" src="" alt="Product Image">
+            </div>
+            <div class="item-info">
+                <h1 id="detailsTitle">Product Title</h1>
+                <div class="details-rating" id="detailsRating"></div>
+                <div class="details-prime" id="detailsPrime"></div>
+                <div class="details-price" id="detailsPrice"></div>
+                <div class="details-description" id="detailsDescription">Product description goes here.</div>
+                <button id="addToCartBtn">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-columns">
+            <div>
+                <h4>Get to Know Us</h4>
+                <a href="#">About Amazon</a><br>
+                <a href="#">Careers</a><br>
+                <a href="#">Press Releases</a>
+            </div>
+            <div>
+                <h4>Make Money with Us</h4>
+                <a href="#">Sell on Amazon</a><br>
+                <a href="#">Become an Affiliate</a>
+            </div>
+            <div>
+                <h4>Amazon Payment Products</h4>
+                <a href="#">Amazon Business Card</a><br>
+                <a href="#">Shop with Points</a>
+            </div>
+            <div>
+                <h4>Let Us Help You</h4>
+                <a href="#">Your Account</a><br>
+                <a href="#">Returns & Orders</a><br>
+                <a href="#">Help</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025, Amazon Clone</div>
+    </footer>
+    <script src="js/item-details.js"></script>
+</body>
+</html>

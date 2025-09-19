@@ -67,7 +67,7 @@ const products = [
 ];
 
 const productsContainer = document.getElementById('products');
-products.forEach(product => {
+products.forEach((product, idx) => {
     const div = document.createElement('div');
     div.className = 'product';
     div.innerHTML = `
@@ -75,11 +75,17 @@ products.forEach(product => {
         <div class="title">${product.title}</div>
         <div class="rating">
             ${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 ? '½' : ''}
-            <span style=\"color:#555; font-size:0.9em;\">(${product.rating})</span>
+            <span style='color:#555; font-size:0.9em;'>(${product.rating})</span>
         </div>
         ${product.prime ? '<div class="prime"><i class="fa fa-crown"></i> Prime</div>' : ''}
         <div class="price">${product.price}</div>
         <button>Add to Cart</button>
     `;
+    div.style.cursor = 'pointer';
+    div.addEventListener('click', function(e) {
+        // Prevent button click from triggering navigation
+        if (e.target.tagName.toLowerCase() === 'button') return;
+        window.location.href = `item-details.html?id=${idx}`;
+    });
     productsContainer.appendChild(div);
 });
