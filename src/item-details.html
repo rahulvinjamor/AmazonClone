@@ -48,18 +48,38 @@
     </header>
     <main class="item-details-main">
         <div class="item-details-container">
-            <div class="item-image">
+            <div class="item-gallery">
                 <img id="detailsImage" src="" alt="Product Image">
+                <div class="gallery-thumbnails" id="galleryThumbnails"></div>
             </div>
             <div class="item-info">
                 <h1 id="detailsTitle">Product Title</h1>
                 <div class="details-rating" id="detailsRating"></div>
                 <div class="details-prime" id="detailsPrime"></div>
                 <div class="details-price" id="detailsPrice"></div>
+                <div class="details-delivery" id="detailsDelivery">Delivery by <b>Tomorrow</b> to <b>India</b></div>
+                <div class="details-seller" id="detailsSeller">Sold by <b>Amazon.com</b></div>
+                <div class="details-buybox">
+                    <button id="addToCartBtn">Add to Cart</button>
+                    <button id="buyNowBtn">Buy Now</button>
+                </div>
+                <ul class="details-highlights" id="detailsHighlights"></ul>
                 <div class="details-description" id="detailsDescription">Product description goes here.</div>
-                <button id="addToCartBtn">Add to Cart</button>
+                <table class="details-techspecs" id="detailsTechSpecs"></table>
             </div>
         </div>
+        <section class="item-reviews">
+            <h2>Customer Reviews</h2>
+            <div id="reviewsContainer"></div>
+        </section>
+        <section class="item-qa">
+            <h2>Customer Questions & Answers</h2>
+            <div id="qaContainer"></div>
+        </section>
+        <section class="item-related">
+            <h2>Related Products</h2>
+            <div id="relatedContainer"></div>
+        </section>
     </main>
     <footer class="footer">
         <div class="footer-columns">
